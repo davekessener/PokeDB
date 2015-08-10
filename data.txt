@@ -1,0 +1,103 @@
+pokemon
+	name			str [PK]
+	type1			str [FK: types]
+	type2			str [FK: types]
+	pokedex-id		int [FK: pokedex]
+	attacks-id		int [FK: attacks]
+	evolutions-id	int [FK: evolutions]
+	ability1		str [FK: abilities]
+	ability2		str [FK: abilities]
+	hidden_ability	str [FK: abilities]
+	species			str
+	height			real
+	weight			real
+	base_hp			int
+	base_atk		int
+	base_def		int
+	base_spa		int
+	base_spd		int
+	base_spe		int
+	ev_hp			int
+	ev_atk			int
+	ev_def			int
+	ev_spa			int
+	ev_spd			int
+	ev_spe			int
+
+types
+	name			str [PK]
+	strong			str [FK: types]
+	weak			str [FK: types]
+	immune			str [FK: types]
+
+pokedex
+	id				int [PK]
+	entry			str
+	egg group1		str [FK: egggroups]
+	egg group2		str [FK: egggroups]
+	game locations	int [FK: locations]
+	gender ratio	real
+	base happiness	int
+	base exp		int
+	growth rate		int
+	catch rate		int
+	hatch cycles	int
+
+evolutions
+abilities
+egggroups
+locations
+
+
+
+pokemon:
+	- name*
+	- types
+	- base stats:
+		HP
+		Atk
+		Def
+		SpA
+		SpD
+		SPe
+	- EVs:
+		HP
+		Atk
+		Def
+		SpA
+		SpD
+		Spe
+	- pokedex:
+		- no
+		- entry
+		- gender ratio
+		- egg groups
+		- base happiness
+		- base exp
+		- growth rate
+		- catch rate
+		- hatch cycles
+		- game locations
+	- species
+	- height
+	- weight
+	- attacks:
+		- level
+		- TMs
+		- egg
+		- mt
+		- previous
+		- transfer only
+	- evolutions
+	- abilities
+
+attack:
+	- name*
+	- power
+	- accuracy
+	- type
+	- category
+	- effects
+	- description*
+	- target
+
